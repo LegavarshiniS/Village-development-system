@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Officer Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function feed() {
+            var name = document.forms["feedback"]["nme"];
+            var status = document.forms["feedback"]["sta"];
+            if (name.value === "") {
+                alert("Please enter the name");
+                name.focus();
+                return false;
+            } else if (status.value === "") {
+                alert("Please enter the status");
+                status.focus();
+                return false;
+            } else {
+                
+                var statuses = JSON.parse(localStorage.getItem('statuses')) || [];
+                statuses.push({ name: name.value, status: status.value });
+                localStorage.setItem('statuses', JSON.stringify(statuses));
+
+                alert("Status sent successfully");
+                return true;
+            }
+        }
+    </script>
+    <style>
+          .nav {
+            background-color: grey;
+            /* position: fixed; */
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one {
+            color: white;
+            margin-right: 60px;
+            text-decoration: none;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .two {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .three {
+            margin-right: 60px;
+            text-decoration: none;
+            color: black;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .four {
+            margin-right: 60px;
+            text-decoration: none;
+            color :white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .one:hover, .two:hover, .three:hover {
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: none;
+        }
+        .onee {
+            margin-top: 10px;
+            border-radius: 100px;
+        }
+        input {
+            padding: 8px;
+            width: 343px;
+            border-right-style: none;
+            border-top-style: none;
+            border-left-style: none;
+        }
+        h4 {
+            display: inline;
+        }
+        .linkk {
+            text-decoration: none;
+            color: black;
+        }
+        .linkk:hover {
+            color: blue;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px; 
+            padding: 0 20px;
+        }
+        .form-container {
+            margin-top:4px ;
+            width: 40%;
+            margin-left: 160px;
+        }
+        button
+        {
+            width:183px;
+            padding:8px;
+        }
+        button:hover
+        {
+            background-color:darkgray;
+        }
+        i{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="home.html">Home</a>
+            <a class="two" href="offprob.html">View Problems</a>
+            <a class="three" href="offstatus.html">Update Status</a>
+            <a class="four" href="offviewfeedback.html">View Feedback</a>
+            <i class="fa-solid fa-power-off"></i>&nbsp;&nbsp;&nbsp;
+            <a class="four" href="home.html">LOGOUT</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg">
+        <div class="form-container">
+            <form name="feedback" onsubmit="return feed()">
+                <label class="name">Username
+                    <br><input type="text" name="nme" placeholder="Enter Username">
+                </label><br><br>
+                <label>Status
+                    <br><input class="text" type="text" name="sta" placeholder="Enter Status">
+                </label><br><br>
+                <button type="submit">SEND STATUS</button>
+                <button><a class="linkk" href="home.html">CANCEL</a></button><br><br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

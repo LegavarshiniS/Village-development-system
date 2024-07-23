@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>officer feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function loadFeedback() {
+            var feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+            var feedbackList = document.getElementById('feedbackList');
+            feedbackList.innerHTML = '';
+
+            feedbacks.forEach(function(feedback) {
+                var feedbackItem = document.createElement('li');
+                feedbackItem.textContent = `Name: ${feedback.name}, Feedback: ${feedback.feedback}`;
+                feedbackList.appendChild(feedbackItem);
+            });
+        }
+
+        window.onload = loadFeedback;
+    </script>
+    <style>
+        .nav {
+            background-color: grey;
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one, .two, .three, .four {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .four {
+            color: black;
+        }
+        .one:hover, .two:hover, .three:hover, .four:hover {
+            color: black;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .check {
+            color: black;
+            margin-left: 40px;
+        }
+        ol {
+            color: black;
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+        i {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="home.html">Home</a>
+            <a class="two" href="offprob.html">View Problems</a>
+            <a class="three" href="offstatus.html">Update Status</a>
+            <a class="four" href="offfeed.html">View Feedback</a>
+            <i class="fa-solid fa-power-off"></i>&nbsp;&nbsp;&nbsp;
+            <a class="three" href="home.html">LOGOUT</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg">
+        <div>
+            <h2 class="check">USERS' FEEDBACK ARE HERE!!</h2>
+            <ol id="feedbackList"></ol>
+        </div>
+    </div>
+</body>
+</html>

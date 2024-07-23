@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forgot</title>
+    <script>
+        function lgn() {
+            var user = document.forms["login"]["nme"];
+            var password = document.forms["login"]["pwd"];
+            if (user.value == "") {
+                alert("Please enter the name");
+                user.focus();
+                return false;
+            } 
+            else {
+                alert("New password set!");
+                window.location.href = "userlogin.html";
+                return false;
+            } 
+        }
+    </script>
+    <style>
+        .nav {
+            background-color: grey;
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one {
+            color: black;
+            margin-right: 60px;
+            text-decoration: none;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .two {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .three {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .one:hover, .two:hover, .three:hover {
+            color: black;
+            text-decoration: none;
+        }
+        .onee {
+            margin-top: 10px;
+            border-radius: 100px;
+        }
+        input {
+            padding: 8px;
+            width: 343px;
+            border-right-style: none;
+            border-top-style: none;
+            border-left-style: none;
+        }
+        h4 {
+            display: inline;
+        }
+        .linkk {
+            text-decoration: none;
+            color: black;
+        }
+        .linkk:hover {
+            color: blue;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px; 
+            padding: 0 20px;
+        }
+        .form-container {
+            margin-top:4px ;
+            width: 40%;
+            margin-left: 160px;
+        }
+        button {
+            width: 180px;
+            padding: 8px;
+        }
+        button:hover {
+            background-color: darkgray;
+        }
+        .clickk
+        {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="#">USER</a>
+            <a class="two" href="offlogin.html">OFFICER</a>
+            <a class="three" href="#">ADMIN</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg" alt="Login Image">
+        <div class="form-container">
+            <form name="login" onsubmit="return lgn()">
+                <label class="name">Username
+                    <br><input type="text" name="nme" placeholder="Enter the correct Username" >
+                </label><br><br>
+                <label>Old Password
+                    <br><input name="pwd" class="pass" id="password" type="password" placeholder="Enter the old Password" >
+                </label><br><br>
+                <label>New Password
+                    <br><input name="pwd" class="pass" id="password" type="password" placeholder="Enter the new Password" >
+                </label><br><br>
+                <button type="submit">SET PASSWORD</button>
+                <button><a class="clickk" href="userlogin.html">CANCEL</a></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

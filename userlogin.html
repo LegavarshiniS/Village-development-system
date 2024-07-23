@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <script>
+        function lgn() {
+            var user = document.forms["login"]["nme"];
+            var password = document.forms["login"]["pwd"];
+            if (user.value == "") {
+                alert("Please enter name");
+                user.focus();
+                return false;
+            } else if (password.value == "") {
+                alert("Please enter password");
+                password.focus();
+                return false;
+            } else if (user.value == "name" && password.value == "123") {
+                alert("Logged in");
+                window.location.href = "userland.html";
+                return false;
+            } else {
+                alert("Invalid username or password");
+                return false;
+            }
+        }
+    </script>
+    <style>
+        .nav {
+            background-color: grey;
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one {
+            color: black;
+            margin-right: 60px;
+            text-decoration: none;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .two {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .three {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .one:hover, .two:hover, .three:hover {
+            color: black;
+            text-decoration: none;
+        }
+        .onee {
+            margin-top: 10px;
+            border-radius: 100px;
+        }
+        input {
+            padding: 8px;
+            width: 343px;
+            border-right-style: none;
+            border-top-style: none;
+            border-left-style: none;
+        }
+        h4 {
+            display: inline;
+        }
+        .linkk {
+            text-decoration: none;
+            color: black;
+        }
+        .linkk:hover {
+            color: blue;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px; 
+            padding: 0 20px;
+        }
+        .form-container {
+            margin-top:4px ;
+            width: 40%;
+            margin-left: 160px;
+        }
+        button {
+            width: 363px;
+            padding: 8px;
+        }
+        button:hover {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="#">USER</a>
+            <a class="two" href="offlogin.html">OFFICER</a>
+            <a class="three" href="#">ADMIN</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg" alt="Login Image">
+        <div class="form-container">
+            <form name="login" onsubmit="return lgn()">
+                <label class="name">Username
+                    <br><input type="text" name="nme" placeholder="Enter Username" >
+                </label><br><br>
+                <label>Password
+                    <br><input name="pwd" class="pass" id="password" type="password" placeholder="Enter Password" >
+                </label><br><br>
+                <button type="submit">LOGIN</button><br><br>
+                <h4><a class="linkk" href="forgotuser.html">Forgot Password?</a></h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h4>Don't have an account?<a class="linkk" href="userregiter.html">Signup</a></h4>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

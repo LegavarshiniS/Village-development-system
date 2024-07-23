@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>officer problems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function loadProblems() {
+            var problems = JSON.parse(localStorage.getItem('problems')) || [];
+            var problemList = document.getElementById('problemList');
+            problemList.innerHTML = '';
+
+            problems.forEach(function(problem, index) {
+                var problemItem = document.createElement('li');
+                problemItem.textContent = `Name: ${problem.name},Problem: ${problem.problem}, Description: ${problem.description}`;
+                problemList.appendChild(problemItem);
+            });
+        }
+
+        window.onload = loadProblems;
+    </script>
+    <style>
+        .nav {
+            background-color: grey;
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+
+        .one, .three, .four {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .two {
+            margin-right: 60px;
+            color: black;
+            text-decoration: none;
+        }
+        .one:hover, .two:hover, .three:hover, .four:hover {
+            color: black;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .check {
+            color: black;
+            margin-left: 40px;
+        }
+        p {
+            color:black;
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+        i{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="home.html">Home</a>
+            <a class="two" href="offprob.html">View Problems</a>
+            <a class="three" href="offstatus.html">Update Status</a>
+            <a class="four" href="offfeed.html">View Feedback</a>
+            <i class="fa-solid fa-power-off"></i>&nbsp;&nbsp;&nbsp;
+            <a class="four" href="home.html">LOGOUT</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg">
+        <div>
+            <h2 class="check">PROBLEMS ARE HERE!!</h2>
+            
+            <ol id="problemList">
+               
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Officer Register</title>
+    <script>
+        function lgn() {
+            var id = document.forms["login"]["idd"].value;
+            var user = document.forms["login"]["nme"].value;
+            var password = document.forms["login"]["pwd"].value;
+            var email = document.forms["login"]["email"].value;
+            var ad = document.forms["login"]["ad"].value;
+            var age = document.forms["login"]["age"].value;
+
+            if (id == "") {
+                alert("Please enter the ID number");
+                document.forms["login"]["nme"].focus();
+                return false;
+            }
+            else if (user == "") {
+                alert("Please enter name");
+                document.forms["login"]["nme"].focus();
+                return false;
+            }
+            else if (password == "") {
+                alert("Please enter password");
+                document.forms["login"]["pwd"].focus();
+                return false;
+            }
+            else if (email == "") {
+                alert("Please enter email");
+                document.forms["login"]["email"].focus();
+                return false;
+            }
+            else if (ad == "") {
+                alert("Please enter the Address");
+                document.forms["login"]["ad"].focus();
+                return false;
+            }
+            else if (age == "") {
+                alert("Please enter the age");
+                document.forms["login"]["age"].focus();
+                return false;
+            }
+            else if (password.length < 2) {
+                alert("Password length must be greater than 2");
+                document.forms["login"]["pwd"].focus();
+                return false;
+            }
+            else {
+                alert("Registered successfully");
+                console.log("Redirecting to offlogin.html");
+                window.location.href = "offlogin.html";
+                return false;
+            }
+        }
+    </script>
+    <style>
+        .nav {
+            background-color: grey;
+            /* position: fixed; */
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one {
+            color: white;
+            margin-right: 60px;
+            text-decoration: none;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .two {
+            margin-right: 60px;
+            text-decoration: none;
+            color: black;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .three {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .one:hover, .two:hover, .three:hover {
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: none;
+        }
+        .onee {
+            margin-top: 10px;
+            border-radius: 100px;
+        }
+        input {
+            padding: 8px;
+            width: 343px;
+            border-right-style: none;
+            border-top-style: none;
+            border-left-style: none;
+        }
+        h4 {
+            display: inline;
+        }
+        .linkk {
+            text-decoration: none;
+            color: black;
+        }
+        .linkk:hover {
+            color: blue;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 40px; 
+            padding: 0 20px;
+        }
+        .form-container {
+            margin-top:4px ;
+            width: 40%;
+            margin-left: 160px;
+        }
+        .age
+        {
+            width: 100px;
+            display: inline;
+
+        }
+        .gen
+        {
+            display: inline;
+            width: 35px;
+        }
+        button
+        {
+            width: 373px;
+            padding:8px
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="">USER</a>
+            <a class="two" href="">OFFICER</a>
+            <a class="three" href="">ADMIN</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg">
+        <div class="form-container">
+            <form name="login" onsubmit="return lgn()">
+                <label class="name">Identification Number (4 digits)
+                    <br><input type="text" name="idd" placeholder="Enter ID Number" ></input>
+                </label><br><br>
+                <label class="name">Username
+                    <br><input type="text" name="nme" placeholder="Enter Username" ></input>
+                </label><br><br>
+                <label>Password
+                    <br><input name="pwd" class="pass" id="password" type="password" placeholder="Enter Password" >
+                </label><br><br>
+                <label>Email
+                    <br><input name="email" class="pass" id="password" type="email" placeholder="Enter Email" >
+                </label><br><br>
+                <label>Address 
+                    <br><input name="ad" type="text">
+                </label><br><br>
+                <label>Age
+                    <br><input name="age" class="age" type="number">
+                </label>
+                <label>Gender</label>
+                <input class="gen" type="radio" value="Male" name="gender">
+                <label>Male</label>
+                <input class="gen" type="radio" value="Female" name="gender">
+                <label>Female</label><br><br>
+                <label>Upload ID
+                    <input class="file" id="upload" type="file">
+                </label><br><br>
+                <button>REGISTER</button><br><br>
+                <h4>Already have an account?<a class="linkk" href="offlogin.html">Login</a></h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h4><a class="linkk" href="home.html">CANCEL</a></h4>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

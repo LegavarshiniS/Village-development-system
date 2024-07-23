@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User feedback</title>
+    <script>
+        function sendFeedback() {
+            var name = document.forms["feedbackForm"]["username"];
+            var feedback = document.forms["feedbackForm"]["feedback"];
+            if (name.value === "") {
+                alert("Please enter the name");
+                name.focus();
+                return false;
+            }
+            if (feedback.value === "") {
+                alert("Please enter the feedback");
+                feedback.focus();
+                return false;
+            } else {
+                var feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+                feedbacks.push({ name: name.value, feedback: feedback.value });
+                localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+
+                alert("Feedback sent successfully");
+                return true;
+            }
+        }
+    </script>
+    <style>
+        .nav {
+            background-color: grey;
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one, .two, .three, .four {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .four {
+            color: black;
+        }
+        .one:hover, .two:hover, .three:hover, .four:hover {
+            color: black;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .form-container {
+            margin-top: 4px;
+            width: 40%;
+            margin-left: 160px;
+        }
+        input {
+            padding: 8px;
+            width: 343px;
+            border-right-style: none;
+            border-top-style: none;
+            border-left-style: none;
+        }
+        button {
+            width: 173px;
+            padding: 8px;
+        }
+        button:hover {
+            background-color: darkgray;
+        }
+        .linkk {
+            text-decoration: none;
+            color: black;
+        }
+        .linkk:hover {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="home.html">Home</a>
+            <a class="two" href="userprob.html">Add Problems</a>
+            <a class="three" href="userstatus.html">View Status</a>
+            <a class="four" href="userfeed.html">Send Feedback</a>
+            <a class="three" href="home.html">LOGOUT</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg" alt="Login Image">
+        <div class="form-container">
+            <form name="feedbackForm" onsubmit="return sendFeedback()">
+                <label class="name">Username
+                    <br><input type="text" name="username" placeholder="Enter the name">
+                </label><br><br>
+                <label class="name">Feedback
+                    <br><input type="text" name="feedback" placeholder="Enter the feedback">
+                </label><br><br>
+
+                <button type="submit">SEND FEEDBACK</button>
+                <button > <a class="linkk" href="home.html">CANCEL</a></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

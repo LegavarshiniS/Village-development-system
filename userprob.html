@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Problems</title>
+    <script>
+        function prob() {
+            var name = document.forms["problems"]["nme"];
+            var problem = document.forms["problems"]["pro"];
+            var description = document.forms["problems"]["des"];
+            if (name.value === "") {
+                alert("Please enter the name");
+                name.focus();
+                return false;
+            }
+            if (problem.value === "") {
+                alert("Please enter the problem");
+                problem.focus();
+                return false;
+            } else if (description.value === "") {
+                alert("Please enter description");
+                description.focus();
+                return false;
+            } else {
+                var problems = JSON.parse(localStorage.getItem('problems')) || [];
+                problems.push({ name:name.value, problem: problem.value, description: description.value });
+                localStorage.setItem('problems', JSON.stringify(problems));
+
+                alert("Problems posted successfully");
+                return true;
+            }
+        }
+    </script>
+    <style>
+.nav {
+            background-color: grey;
+            width: 100%;
+        }
+        header {
+            display: inline-flex;
+            color: white;
+            margin-left: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        nav {
+            display: inline-flex;
+            float: inline-end;
+            margin-top: 30px;
+            margin-right: 60px;
+        }
+        .one {
+            color:white;
+            margin-right: 60px;
+            text-decoration: none;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .two {
+            margin-right: 60px;
+            text-decoration: none;
+            color:black;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .three {
+            margin-right: 60px;
+            text-decoration: none;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .one:hover, .two:hover, .three:hover {
+            color: black;
+            text-decoration: none;
+        }
+        .onee {
+            margin-top: 10px;
+            border-radius: 100px;
+        }
+        input {
+            padding: 8px;
+            width: 343px;
+            border-right-style: none;
+            border-top-style: none;
+            border-left-style: none;
+        }
+        h4 {
+            display: inline;
+        }
+        .linkk {
+            text-decoration: none;
+            color: black;
+        }
+        .linkk:hover {
+            color: blue;
+        }
+        img {
+            width: 60%;
+            height: 500px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px; 
+            padding: 0 20px;
+        }
+        .form-container {
+            margin-top:4px ;
+            width: 40%;
+            margin-left: 160px;
+        }
+        button {
+            width: 363px;
+            padding: 8px;
+        }
+        button:hover {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <h1>RURAL SOLUTIONS</h1>
+        </header>
+        <nav>
+            <a class="one" href="home.html">Home</a>
+            <a class="two" href="userprob.html">Add Problems</a>
+            <a class="three" href="userstatus.html">View Status</a>
+            <a class="three" href="userfeed.html">Send Feedback</a>
+            <a class="three" href="home.html">LOGOUT</a>
+        </nav>
+    </div>
+    <div class="container">
+        <img src="logimg.jpeg" alt="Login Image">
+        <div class="form-container">
+            <form name="problems" onsubmit="return prob()">
+                <label class="name">Username
+                    <br><input type="text" name="nme" placeholder="Enter the name">
+                </label><br><br>
+                <label class="name">Problem
+                    <br><input type="text" name="pro" placeholder="Enter Problem">
+                </label><br><br>
+                <label>Description
+                    <br><input name="des" class="pass" type="text" placeholder="Enter Description">
+                </label><br><br>
+                <button type="submit">POST PROBLEMS</button><br><br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
